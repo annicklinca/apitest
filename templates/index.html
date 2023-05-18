@@ -1,0 +1,386 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block title %}Welcome to welink foundation {% endblock %}
+{% block content %}
+<!-- End nav -->
+{% if messages %}
+{% for message in messages %}
+<div class="bg-red-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+   <div class="flex">
+      <div class="py-1"></div>
+      <div>
+         <p class="font-bold">{{ message }}</p>
+
+      </div>
+   </div>
+</div>
+{% endfor %}
+{% endif %}
+
+<!-- start body -->
+<!-- -----start bgimage---- -->
+<div class="bgImageWeb">
+   <div class="bg-black bg-opacity-70">
+      <div class="max-w-6xl mx-auto  py-32 pt-42   ">
+         <div class="w-3/4">
+            <h3 class="heading_two pt-52 text-white-900 px-4 text-2xl md:text-5xl font-bold">Africa Oasis Foundation,
+            </h3>
+            <h3 data-aos="zoom-in-down" class="heading_two py-4 px-4 text-white-900 font-bold text-xl md:text-3xl ">To
+              AOF aims to provide care for all children, giving them the opportunity to receive an education and break free from poverty. Through sharing Christian love and providing opportunities that lead to a brighter future, we strive to bring hope to their lives.
+            </h3>
+         
+            <a href="{% url 'sponsor' %}"> <button
+                  class="heading_two mx-2 hover:bg-green-700 text-white mt-4 font-normal py-2 px-6 rounded-full"
+                  style="background-color: #00A6EB;">
+                  Sponsor a child
+               </button>
+            </a>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- style="background-color: rgb(19,51,88);" -->
+<!-- -----end bgimage---- -->
+<div class="" style="background-color: rgb(19,51,88);">
+   <!-- ----------start Participate----- -->
+   <div class="max-w-6xl mx-auto">
+      <div class="flex flex-wrap mx-12 ">
+         <div class="flex sm:w-1/4 w-1/2 my-8">
+            <div class="h-16 w-16 inline-block py-2 text-yellow-600 border-2 border-yellow-100 rounded-full bg-white">
+               <img src="{% static 'img/volunteer.svg' %}" class=" w-32 rounded-lg  fill-slate-300" />
+            </div>
+            <div class="heading_two grid pl-2 py-1">
+               <h3 class="font-semibold text-sm text-yellow-600">Participate </h3>
+               <h3 class="font-bold text-lg text-white">As Volunteer</h3>
+            </div>
+         </div>
+
+         <div class="flex sm:w-1/4 w-1/2 my-8">
+            <div class="h-16 w-16 inline-block py-2 text-yellow-600 border-2 border-yellow-100 rounded-full bg-white">
+               <img src="{% static 'img/parent.svg' %}" class=" w-32 rounded-lg  fill-slate-300" />
+            </div>
+            <div class="heading_two grid pl-2 py-1">
+               <h3 class="font-semibold text-sm text-yellow-600">Participate </h3>
+               <h3 class="font-bold text-lg text-white"> As Parent</h3>
+            </div>
+         </div>
+
+         <div class="flex sm:w-1/4 w-1/2 my-8">
+            <div class="h-16 w-16 inline-block py-2 text-yellow-600 border-2 border-yellow-100 rounded-full bg-white">
+               <img src="{% static 'img/trainer.svg' %}" class=" w-32 rounded-lg  fill-slate-300" />
+            </div>
+            <div class="heading_two grid pl-2 py-1">
+               <h3 class="font-semibold text-sm text-yellow-600">Participate </h3>
+               <h3 class="font-bold text-lg text-white">As Trainer</h3>
+            </div>
+         </div>
+
+         <div class="flex sm:w-1/4 w-1/2 my-8">
+            <div class="h-16 w-16 inline-block py-2 text-yellow-600 border-2 border-yellow-100 rounded-full bg-white">
+               <img src="{% static 'img/icon/sponsoricon.svg' %}" class=" w-32 rounded-lg  fill-slate-300" />
+            </div>
+            <div class="heading_two grid pl-2 py-1">
+               <h3 class="font-semibold text-sm text-yellow-600">Participate </h3>
+               <h3 class="font-bold text-lg text-white">As Sponsor</h3>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- ------end Participate------ -->
+   <div class="max-w-6xl mx-auto p-8">
+      <div class="flex flex-wrap">
+         <div class="w-1/6 md:w-2/6">
+            <hr class="text-gray-100 mt-3">
+         </div>
+         <div class="w-4/6 md:w-2/6 text-center item-center">
+            <h1 class="heading_one uppercase font-bold text-center text-white text-3xl font-bold">What We Do </h1>
+         </div>
+         <div class="w-1/6 md:w-2/6">
+            <hr class="text-gray-100 mt-3">
+         </div>
+      </div>
+      <div class="flex flex-wrap my-4">
+         {% for project in projects %}
+
+         <div class="md:w-1/3 w-full p-2" data-aos="fade-up" data-aos-anchor-placement="top-center">
+            <div class="group ">
+               <img class="w-full h-4/5 rounded-xl" src="{{ project.cover.url }}" alt="Your Image" /><br>
+               <p class="heading_two opacity-0  group-hover:opacity-100 "><a class="heading_two text-white"
+                     href="{{ project.get_absolute_url }}">{{ project.name }}</a></p>
+            </div>
+            <style>
+               .opacity-0 {
+                  opacity: 0;
+                  transition: opacity 0.3s ease-in-out;
+               }
+
+               .group:hover .opacity-0 {
+                  opacity: 1;
+               }
+            </style>
+         </div>
+         {% endfor %}
+
+
+      </div>
+
+   </div>
+</div>
+<!-- -----help the need----- -->
+
+
+
+<!-- -------------delivering------- -->
+<div class="bgProject ">
+   <div class="flex flex-wrap ">
+      <div class="bgImigongo2 md:w-3/5 lg:w-3/5 w-full">
+         <div class=" bg-black bg-opacity-90 p-4 md:p-32">
+            <h3 class="heading_two px-12 font-bold pt-12 text-2xl">Delivering help and <br> hope to <span
+                  class="text-yellow-600">people</span> through <br> <span class="text-yellow-600">sponsorship</span>
+            </h3>
+            <div class="heading_two flex flex-wrap mx-12 py-4">
+               <div class="w-1/3 mt-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 inline-block py-2 text-yellow-600"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                  <span class="inline-block font-bold text-sm">Build <br> schools</span>
+               </div>
+
+               <div class="w-1/3 mt-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-yellow-600 inline-block py-2"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                     <path
+                        d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                  </svg>
+                  <span class="inline-block font-bold text-sm">Build <br> schools</span>
+               </div>
+
+               <div class="w-1/3 mt-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-yellow-600 inline-block py-2"
+                     viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd"
+                        d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                        clip-rule="evenodd" />
+                     <path
+                        d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                  </svg>
+                  <span class="inline-block font-bold text-sm">Medical <br> Expenses</span>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+</div>
+<!-- --------------------------end delivert------------------------ -->
+<div class="max-w-6xl mx-auto">
+   <div class="py-6 text-center">
+      <span class="heading_one uppercase font-bold py-8 text-center text-green-600 text-3xl font-bold">Sponsor a
+         student</span>
+   </div>
+   <div class="flex flex-wrap">
+
+      {% for student in students %}
+
+      <div class="md:w-1/3 w-full p-2" data-aos="zoom-in-down">
+         <!-- component -->
+         <div class="">
+            <div
+               class="shadow-lg group container  rounded-md bg-white  max-w-sm flex justify-center items-center  content-div">
+               <div class="py-2  rounded-b-md fd-cl group-hover:opacity-25">
+                  <img src="{{student.image.url }}" class="h-96 w-full rounded" alt="">
+                  <div class="heading_two text-center">
+                     <span class="py-2 block text-lg text-gray-800 font-bold tracking-wide">{{student.studentname}}</span>
+
+                     <span class="py-2 block text-xs text-gray-800 font-normal tracking-wide"><span
+                           class="font-bold">Age: </span>{{ student.age }}</span>
+
+                     <span class="py-2 block text-xs text-gray-800 font-normal tracking-wide"><span
+                           class="font-bold">Birthday: </span>{{ student.Dateofbirthday }}</span>
+                     <hr>
+                     <span class="py-2 block text-xs text-gray-800 font-normal tracking-wide"><span
+                           class="font-bold">Location: </span>{{ student.location }}</span>
+                     <hr>
+                  </div>
+               </div>
+               <div class="absolute opacity-0 fd-sh group-hover:opacity-100">
+                  <div class="pt-8 text-center">
+
+                     <a href="{% url 'info' id=student.id %}">
+                        <button
+                           class="heading_two text-center rounded-lg px-4 py-2 bg-white  text-gray-700 font-bold text-md">View
+                           More</button>
+                     </a>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+         <style>
+            .content-div:hover {
+               background-color: rgb(0, 3, 38);
+            }
+
+            .image-cover {
+               height: 260px;
+            }
+
+            /*
+                  -remove the classes below if you have the 'group-hover'property added in your tailwind config file
+                  -also remove the class from the html template
+                  */
+            .content-div:hover .fd-cl {
+               opacity: 0.25;
+            }
+
+            .content-div:hover .fd-sh {
+               opacity: 1;
+            }
+         </style>
+      </div>
+
+      {% endfor %}
+   </div>
+</div>
+<!-- -----end body----- -->
+</div>
+<div class=" my-6 flex flex-col md:flex-row shadow-sm overflow-hidden" x-data="{ testimonialActive: 2 }" x-cloak>
+   <div style="background-color: rgb(19,51,88);"
+      class="relative w-full py-2 md:py-24  md:mx-auto  bg-indigo-700 md:w-1/2 flex flex-col item-center justify-center">
+
+      <div class="absolute top-0 left-0 z-10 grid-indigo w-16 h-16 md:w-40 md:h-40 md:ml-20 md:mt-24"></div>
+
+      <div
+         class="uppercase font-bold text-2xl md:text-5xl py-2 px-6 md:py-6 md:px-1 md:w-64 md:mx-auto text-indigo-100 font-semibold leading-tight tracking-tight mb-0 ">
+         <span class="md:block heading_two">Our</span>
+         <span class="md-block heading_two">Sponsor</span>
+         <span class="block heading_two">Are Saying!</span>
+      </div>
+
+      <div class="absolute right-0 bottom-0 mr-4 mb-4 hidden md:block">
+         <button
+            class="rounded-l-full border-r bg-gray-100 text-gray-500 focus:outline-none hover:text-indigo-500 font-bold w-12 h-10"
+            x-on:click="testimonialActive = testimonialActive === 1 ? 3 : testimonialActive - 1">
+            &#8592;
+         </button><button
+            class="rounded-r-full bg-gray-100 text-gray-500 focus:outline-none hover:text-indigo-500 font-bold w-12 h-10"
+            x-on:click="testimonialActive = testimonialActive >= 3 ? 1 : testimonialActive + 1">
+            &#8594;
+         </button>
+      </div>
+   </div>
+   <div class="bg-gray-100 md:w-1/2">
+      <div class="flex flex-col h-full relative">
+         <div class="swiper mySwiper text-white h-full bgImigongo2">
+
+            <div class="swiper-wrapper ">
+               {% for testimony in testimonies %}
+
+               <div class="swiper-slide  pt-12 lg:pl-40 lg:pr-40 text-center bg-black bg-opacity-80">
+                  <div class="max-w-xs mx-auto py-2">
+                     <div class="relative  ml-16 w-32 md:32 h-32 md:h-32 ">
+                        <img class=" w-32 h-32 rounded-full border  border-gray-100" src="{{ testimony.profile.url }}"
+                           alt="user image" />
+
+                     </div>
+                  </div>
+                  <p class="heading_two text-center text-gray-800 py-2">{{ testimony.body|safe }}</p>
+               </div>
+               {% endfor %}
+            </div>
+            <div class="swiper-pagination py-8"></div>
+         </div>
+      </div>
+   </div>
+</div>
+<section>
+   <div class="grid lg:grid-cols-2 gap-5 justify-center max-w-6xl mx-auto">
+      <div class="w-full w-1/2 flex flex-col justify-center px-3">
+         <h1 class="text-gray-500  text-3xl font-bold my-12 text-center">Encourage the imagination of all children</h1>
+         <p class="text-base">
+            Our approach to nurturing the well-being of children acknowledges that educational support is fundamental, but it is not enough for their overall success. In addition to academic assistance, we prioritize fostering their spiritual growth, building community, and promoting physical health
+         </p>
+         <span class="text-gray-500 text-xl py-3"></span>
+      </div>
+      <div class="w-full w-1/2 hidden md:block">
+         <img src="{% static  'img/map.png'  %}" class="max-w-xl my-12 " />
+      </div>
+   </div>
+</section>
+
+
+<section>
+
+
+
+
+   <!-- Start Testimonial -->
+
+   <!-- End Testimonial -->
+
+
+   <!-- New Letter -->
+   <div class="">
+      <div class="  pb-12">
+         <div class="bgImageWeb">
+            <h1 class="heading_one text-4xl hover:text-yellow-900 text-center pt-32 font-extrabold">Our Impact</h1>
+            <p class="pt-32"></p>
+            <div class="heading_two flex flex-wrap justify-around place-item-center max-w-6xl mx-auto">
+               <div class="w-full md:w-56">
+                  <div class="card w-64 h-64">
+                     <div class="mx-1 p-4 bg-white shadow-lg rounded-lg" data-aos="zoom-out-up">
+                        <img class="inline-block h-12 w-12 text-green-500"
+                           src="{% static 'images/aos/student enrollment.svg' %}" />
+                        <span class="font-extrabold text-cyan-700">200+</span><br>
+                        <p class="text-sm text-gray-500 p-3 uppercase heading_two">Student Sponsor</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="w-full md:w-56">
+                  <div class="card w-64 h-64">
+                     <div class="mx-1 p-4 bg-white shadow-lg rounded-lg" data-aos="zoom-out-up">
+                        <img class="inline-block h-12 w-12 text-green-500"
+                           src="{% static 'images/aos/student enrollment.svg' %}" />
+                        <span class="font-extrabold text-cyan-700">400+</span><br>
+                        <p class="text-sm text-gray-500 p-3 heading_two">Student enrolled in Oasis School.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="w-full md:w-56">
+                  <div class="card w-64 h-64">
+                     <div class="mx-1 p-4 bg-white shadow-lg rounded-lg" data-aos="zoom-out-up">
+
+                        <img class="inline-block h-12 w-12 text-green-500"
+                           src="{% static 'images/aos/post secondary support.svg' %}" />
+                        <span class="font-extrabold text-cyan-700">400+</span><br>
+                        <p class="text-sm text-gray-500 p-3 heading_two">Post Secondary student support</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="w-full md:w-56">
+                  <div class="card w-64 h-64">
+                     <div class="mx-1 p-4 bg-white shadow-lg rounded-lg" data-aos="zoom-out-up">
+                        <img class="inline-block h-12 w-12 text-green-500"
+                           src="{% static 'images/aos/women equipped.svg' %}" />
+                        <span class="font-extrabold text-cyan-700">800+</span><br>
+                        <p class="text-sm text-gray-500 p-3 heading_two">Women equipped to provide for themselves and
+                           thier families</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- End New Letter -->
+
+
+</section>
+
+
+{% endblock %}
